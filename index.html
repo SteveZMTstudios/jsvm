@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>JSLinux</title>
+  <link href="style.css?v=1.0" type="text/css" rel="stylesheet"/>
+<style>
+#term_paste{
+	max-height: 16px;
+	max-width: 100px;
+	height: 16px;
+	width: 100px;
+	margin: 10px 0 0 10px;
+}
+body,html{
+	margin:0;
+	padding: 0;
+	overflow: hidden;
+}
+.btn-refresh{
+	display: inline-block;
+	text-decoration: none;
+	font-size: 14px;
+	padding: 8px 15px;
+	color: #333;
+	float: right;
+	
+}
+</style>
+</head>
+<body>
+<div id="term_wrap">
+  <div id="term_container">
+  </div>
+  <div>
+    <textarea id="term_paste" cols="10" rows="1" autocorrect="off">Paste Here</textarea>
+    <label style="display: none">
+      <img title="Upload files" src="images/upload-icon.png"><input type="file" id="files" multiple onchange="on_update_files(this.files)">
+    </label>
+    <progress id="net_progress">
+    </progress>
+    <a href="index.html" class="btn-refresh">刷新</a>
+  </div>
+</div>
+
+<script type="text/javascript">
+var lineChars=()=>{
+	var w = window.innerWidth;
+	var ch = "w";
+	var span = document.createElement("span");
+	document.body.appendChild(span);
+	//span.style.whiteSpace = "nowrap";
+	span.style.fontFamily = "courier,fixed,swiss,monospace,sans-serif";
+	span.style.fontSize = "15px";
+	var len = 0;
+	while(span.offsetWidth+20<w){
+		span.innerHTML += ch;
+		len++;
+	}
+	document.body.removeChild(span);
+	return len;
+}
+</script>
+<script type="text/javascript" src="term.js?v=1.0"></script>
+<script type="text/javascript" src="jslinux.js?v=1.0"></script>
+</body>
+</html>
